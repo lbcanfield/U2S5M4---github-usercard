@@ -82,6 +82,7 @@ function cardMaker( cardObj )
   userInfo.classList.add( "card-info" );
   heading.classList.add( "name" );
   userName.classList.add( "username" );
+  
 
   // creating DOM hierarchy
   userCard.appendChild( userImage );
@@ -95,12 +96,23 @@ function cardMaker( cardObj )
   userInfo.appendChild( following );
   userInfo.appendChild( biography );
 
-  console.log( cardObj );
+  // adding data to the elements
+  userImage.setAttribute( 'src', cardObj.avatar_url );
+  heading.textContent = cardObj.name;
+  userName.textContent = cardObj.login;
+  userLoc.textContent = cardObj.location;
+  profileLink.textContent = cardObj.html_url; 
+  profileLink.setAttribute( 'href', cardObj.html_url );
+  followers.textContent = `Followers:  ${cardObj.followers}`;
+  following.textContent = `Following:  ${cardObj.following}`;
+  biography.textContent = `Bio:  ${cardObj.bio}`;
 
+  console.log( cardObj );
+  cards.appendChild( userCard );
+  
 
 }
 
-cardMaker( 'test' );
 /*
   List of LS Instructors Github username's:
     tetondan
