@@ -18,7 +18,7 @@ axios.get('https://api.github.com/users/lbcanfield')
   })
 .catch( error =>
   {
-    console.log( error );
+    console.error( error );
   })
 
 /*
@@ -37,7 +37,20 @@ axios.get('https://api.github.com/users/lbcanfield')
     user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = [ "tetondan", "dustinmyers", "justsml", "luishrd" , "bigknell"];
+for ( let i = 0; i < followersArray.length; i += 1 )
+{
+  axios.get( `https://api.github.com/users/${followersArray[i]}`)
+  .then( response => 
+    {
+      cardMaker( response.data );
+    })
+  .catch( error =>
+    {
+      console.error( error );
+    })
+}
+
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
