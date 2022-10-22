@@ -1,9 +1,10 @@
+import axios from 'axios';
 /*
   STEP 1: using axios, send a GET request to the following URL
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
-
+axios.get('https://api.github.com/users/lbcanfield')
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -11,6 +12,14 @@
 
     Skip to STEP 3 (line 34).
 */
+.then( response =>
+  {
+    console.log( response );
+  })
+.catch( error =>
+  {
+    console.log( error );
+  })
 
 /*
   STEP 4: Pass the data received from Github into your function,
@@ -49,7 +58,25 @@ const followersArray = [];
       </div>
     </div>
 */
+const body = document.querySelector("body");
+const cards = body.querySelector("div.cards");
+console.log ( cards );
 
+function cardMaker( cardObj )
+{
+  // instantiating HTML elements
+  const userCard = document.createElement("div");
+  const userImage = document.createElement("img");
+  const userInfo = document.createElement("div");
+  const heading = document.createElement("h3");
+  const userName = document.createElement("p");
+  const userLoc = document.createElement("p");
+  const userProfile = document.createElement("p");
+  const profileLink = document.createElement("a");
+  const followers = document.createElement("p");
+  const following = document.createElement("p");
+  const biography = document.createElement("p");
+}
 /*
   List of LS Instructors Github username's:
     tetondan
