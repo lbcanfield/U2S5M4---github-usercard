@@ -14,7 +14,7 @@ axios.get('https://api.github.com/users/lbcanfield')
 */
 .then( response =>
   {
-    console.log( response );
+    cardMaker( response.data );
   })
 .catch( error =>
   {
@@ -76,7 +76,31 @@ function cardMaker( cardObj )
   const followers = document.createElement("p");
   const following = document.createElement("p");
   const biography = document.createElement("p");
+
+  // adding class names to the instantiated HTML DOM elements
+  userCard.classList.add( "card" );
+  userInfo.classList.add( "card-info" );
+  heading.classList.add( "name" );
+  userName.classList.add( "username" );
+
+  // creating DOM hierarchy
+  userCard.appendChild( userImage );
+  userCard.appendChild( userInfo );
+  userInfo.appendChild( heading );
+  userInfo.appendChild( userName );
+  userInfo.appendChild( userLoc );
+  userInfo.appendChild( userProfile );
+  userProfile.appendChild( profileLink );
+  userInfo.appendChild( followers );
+  userInfo.appendChild( following );
+  userInfo.appendChild( biography );
+
+  console.log( cardObj );
+
+
 }
+
+cardMaker( 'test' );
 /*
   List of LS Instructors Github username's:
     tetondan
